@@ -1,7 +1,7 @@
 import os
 
 if __name__ == '__main__':
-  print("ENV VARIABLE: ",os.getenv('JOB_TYPE'))
-  if os.getenv('JOB_TYPE') == "CONTINUOUS_INTEGRATION" :
+  print("ENV VARIABLE: ",os.getenv('KOKORO_JOB_TYPE'))
+  if os.getenv('KOKORO_JOB_TYPE') == "CONTINUOUS_INTEGRATION" :
     print("Tulsi")
   print("NOT EXECUTE.. :(")
