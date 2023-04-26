@@ -27,3 +27,4 @@ sudo rm -rf /usr/local/go && tar -xzf go_tar.tar.gz && sudo mv go /usr/local
 export PATH=$PATH:/usr/local/go/bin
 echo Installing fio
 sudo apt-get install fio -y
+python3 test.py
