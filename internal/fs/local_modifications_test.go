@@ -2665,8 +2665,6 @@ func (t *RenameTest) OverExisting_WrongType() {
 }
 
 func (t *RenameTest) NonExistentFile() {
-	var err error
-
-	err = os.Rename(path.Join(mntDir, "foo"), path.Join(mntDir, "bar"))
+	err := os.Rename(path.Join(mntDir, "foo"), path.Join(mntDir, "bar"))
 	ExpectThat(err, Error(HasSubstr("no such file")))
 }

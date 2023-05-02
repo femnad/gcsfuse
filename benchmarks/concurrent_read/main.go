@@ -187,6 +187,4 @@ func main() {
 		Jobs:    getJobs(),
 	}
 	run(config)
-
-	return
 }

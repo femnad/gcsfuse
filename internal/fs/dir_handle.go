@@ -115,7 +115,7 @@ func fixConflictingNames(entries []fuseutil.Dirent) (err error) {
 	}
 
 	// Examine each adjacent pair of names.
-	for i, _ := range entries {
+	for i := range entries {
 		e := &entries[i]
 
 		// Find the previous entry.
@@ -212,7 +212,7 @@ func readAllEntries(
 	// about the birthday problem? And more importantly, what about our
 	// semantic of not minting a new inode ID when the generation changes due
 	// to a local action?
-	for i, _ := range entries {
+	for i := range entries {
 		entries[i].Inode = fuseops.RootInodeID + 1
 	}
 

@@ -149,7 +149,6 @@ func (job *Job) testReader(ctx context.Context, client Client, objectNames []str
 			}
 			region.End()
 			doneFiles <- 1
-			return
 		}()
 	}
 

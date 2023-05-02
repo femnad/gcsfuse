@@ -66,6 +66,4 @@ func ParseOptions(m map[string]string, s string) {
 
 		m[name] = value
 	}
-
-	return
 }

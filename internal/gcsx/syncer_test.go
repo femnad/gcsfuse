@@ -375,10 +375,8 @@ func (t *SyncerTest) SourceComponentCountTooHigh() {
 }
 
 func (t *SyncerTest) LargerThanSource_ThresholdAtEndOfSource() {
-	var err error
-
 	// Extend the length of the content.
-	err = t.content.Truncate(int64(len(srcObjectContents) + 1))
+	err := t.content.Truncate(int64(len(srcObjectContents) + 1))
 	AssertEq(nil, err)
 
 	// The append creator should be called.

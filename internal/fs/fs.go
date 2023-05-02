@@ -390,7 +390,7 @@ func (fs *fileSystem) checkInvariants() {
 	//////////////////////////////////
 
 	// INVARIANT: For all keys k, fuseops.RootInodeID <= k < nextInodeID
-	for id, _ := range fs.inodes {
+	for id := range fs.inodes {
 		if id < fuseops.RootInodeID || id >= fs.nextInodeID {
 			panic(fmt.Sprintf("Illegal inode ID: %v", id))
 		}
@@ -523,7 +523,7 @@ func (fs *fileSystem) checkInvariants() {
 	//////////////////////////////////
 
 	// INVARIANT: For all keys k in handles, k < nextHandleID
-	for k, _ := range fs.handles {
+	for k := range fs.handles {
 		if k >= fs.nextHandleID {
 			panic(fmt.Sprintf("Illegal handle ID: %v", k))
 		}

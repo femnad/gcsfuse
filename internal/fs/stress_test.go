@@ -70,7 +70,7 @@ func forEachName(names []string, f func(string) error) (err error) {
 
 	// Read the first error, if any.
 	close(firstErr)
-	err, _ = <-firstErr
+	err = <-firstErr
 
 	return
 }
