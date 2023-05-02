@@ -21,16 +21,16 @@ import (
 	"os/exec"
 	"path"
 	"path/filepath"
-	//"runtime"
 	"syscall"
 	"testing"
 	"time"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/canned"
-	"github.com/googlecloudplatform/gcsfuse/tools/util"
 	"github.com/jacobsa/fuse/fusetesting"
 	. "github.com/jacobsa/oglematchers"
 	. "github.com/jacobsa/ogletest"
+
+	"github.com/googlecloudplatform/gcsfuse/internal/canned"
+	"github.com/googlecloudplatform/gcsfuse/tools/util"
 )
 
 func TestGcsfuse(t *testing.T) { RunTests(t) }

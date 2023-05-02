@@ -17,22 +17,21 @@
 //
 // Usage:
 //
-//     build_gcsfuse src_dir dst_dir version
+//	build_gcsfuse src_dir dst_dir version
 //
 // where src_dir is the root of the gcsfuse git repository (or a tarball
 // thereof).
 //
 // For Linux, writes the following to dst_dir:
 //
-//     bin/gcsfuse
-//     sbin/mount.fuse.gcsfuse
-//     sbin/mount.gcsfuse
+//	bin/gcsfuse
+//	sbin/mount.fuse.gcsfuse
+//	sbin/mount.gcsfuse
 //
 // For OS X:
 //
-//     bin/gcsfuse
-//     sbin/mount_gcsfuse
-//
+//	bin/gcsfuse
+//	sbin/mount_gcsfuse
 package main
 
 import (

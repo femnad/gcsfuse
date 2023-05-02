@@ -25,7 +25,6 @@ import (
 	"github.com/googlecloudplatform/gcsfuse/internal/logger"
 )
 
-
 func HandleCPUProfileSignals() {
 	profileOnce := func(duration time.Duration, path string) (err error) {
 		// Set up the file.

@@ -17,7 +17,6 @@
 //
 // 1.  Open the file.
 // 2.  Read it from start to end with a configurable buffer size.
-//
 package main
 
 import (

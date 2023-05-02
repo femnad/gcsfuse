@@ -18,12 +18,13 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/googlecloudplatform/gcsfuse/internal/fs/inode"
-	"github.com/googlecloudplatform/gcsfuse/internal/locker"
 	"github.com/jacobsa/fuse"
 	"github.com/jacobsa/fuse/fuseops"
 	"github.com/jacobsa/fuse/fuseutil"
 	"golang.org/x/net/context"
+
+	"github.com/googlecloudplatform/gcsfuse/internal/fs/inode"
+	"github.com/googlecloudplatform/gcsfuse/internal/locker"
 )
 
 // State required for reading from directories.
@@ -67,7 +68,7 @@ func newDirHandle(
 	}
 
 	// Set up invariant checking.
-	dh.Mu = locker.New("DH." + in.Name().GcsObjectName(), dh.checkInvariants)
+	dh.Mu = locker.New("DH."+in.Name().GcsObjectName(), dh.checkInvariants)
 
 	return
 }
