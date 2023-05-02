@@ -128,7 +128,6 @@ func getLinesFromStdin() (lines []string) {
 		line, err := reader.ReadString('\n')
 		if err != nil {
 			if err == io.EOF {
-				err = nil
 				break
 			}
 			panic(fmt.Errorf("Stdin error: %w", err))

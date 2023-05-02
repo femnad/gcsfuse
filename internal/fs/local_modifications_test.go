@@ -1242,6 +1242,7 @@ func (t *DirectoryTest) Rmdir_OpenedForReading() {
 	// We should still be able to stat the open file handle.
 	fi, err := t.f1.Stat()
 	ExpectEq("dir", fi.Name())
+	AssertEq(nil, err)
 
 	// Attempt to read from the directory. Unfortunately we can't implement the
 	// guarantee that no new entries are returned, but nothing crazy should
@@ -2079,6 +2080,7 @@ func (t *FileTest) Sync_Clobbered() {
 		bucket,
 		"foo",
 		[]byte("foobar"))
+	AssertEq(nil, err)
 
 	// Attempt to sync the file. This may result in an error if the OS has
 	// decided to hold back the writes from above until now (in which case the
@@ -2166,6 +2168,7 @@ func (t *FileTest) Close_Clobbered() {
 		bucket,
 		"foo",
 		[]byte("foobar"))
+	AssertEq(nil, err)
 
 	// Close the file. This may result in a "generation not found" error when
 	// faulting in the object's contents on Linux where close may cause cached
