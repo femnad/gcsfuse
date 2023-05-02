@@ -58,7 +58,9 @@ func run() (err error) {
 	// Make sure we clean it up later.
 	defer func() {
 		log.Printf("Truncating and closing %s.", path)
-		f.Truncate(0)
+		if terr := f.Truncate(0); err != nil {
+			log.Fatalf("error truncating %s: %v", path, terr)
+		}
 		f.Close()
 
 		log.Printf("Deleting %s.", path)

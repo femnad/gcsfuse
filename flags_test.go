@@ -22,10 +22,11 @@ import (
 	"testing"
 	"time"
 
-	mountpkg "github.com/googlecloudplatform/gcsfuse/internal/mount"
 	. "github.com/jacobsa/oglematchers"
 	. "github.com/jacobsa/ogletest"
 	"github.com/urfave/cli"
+
+	mountpkg "github.com/googlecloudplatform/gcsfuse/internal/mount"
 )
 
 const gcsFuseParentProcessDir = "/var/generic/google"
@@ -361,8 +362,10 @@ func (t *FlagsTest) TestResolvePathForTheFlagInContext() {
 	currentWorkingDir, err := os.Getwd()
 	AssertEq(nil, err)
 	app.Action = func(appCtx *cli.Context) {
-		resolvePathForTheFlagInContext("log-file", appCtx)
-		resolvePathForTheFlagInContext("key-file", appCtx)
+		err := resolvePathForTheFlagInContext("log-file", appCtx)
+		AssertEq(nil, err)
+		err = resolvePathForTheFlagInContext("key-file", appCtx)
+		AssertEq(nil, err)
 
 		ExpectEq(filepath.Join(currentWorkingDir, "test.txt"),
 			appCtx.String("log-file"))
@@ -383,7 +386,8 @@ func (t *FlagsTest) TestResolvePathForTheFlagsInContext() {
 	currentWorkingDir, err := os.Getwd()
 	AssertEq(nil, err)
 	app.Action = func(appCtx *cli.Context) {
-		resolvePathForTheFlagsInContext(appCtx)
+		err := resolvePathForTheFlagsInContext(appCtx)
+		AssertEq(nil, err)
 
 		ExpectEq(filepath.Join(currentWorkingDir, "test.txt"),
 			appCtx.String("log-file"))

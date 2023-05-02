@@ -109,7 +109,8 @@ func (t *AppendObjectCreatorTest) CallsCreateObject() {
 		WillOnce(DoAll(SaveArg(1, &req), Return(nil, errors.New(""))))
 
 	// Call
-	t.call()
+	_, err := t.call()
+	AssertEq(nil, err)
 
 	AssertNe(nil, req)
 	ExpectTrue(strings.HasPrefix(req.Name, prefix), "Name: %s", req.Name)
@@ -175,7 +176,8 @@ func (t *AppendObjectCreatorTest) CallsComposeObjects() {
 		WillOnce(Return(nil))
 
 	// Call
-	t.call()
+	_, err := t.call()
+	AssertEq(nil, err)
 
 	AssertNe(nil, req)
 	ExpectEq(t.srcObject.Name, req.DstName)
@@ -236,7 +238,8 @@ func (t *AppendObjectCreatorTest) CallsComposeObjectsWithObjectProperties() {
 		WillOnce(Return(nil))
 
 	// Call
-	t.call()
+	_, err := t.call()
+	AssertEq(nil, err)
 
 	AssertNe(nil, req)
 	ExpectEq(t.srcObject.Name, req.DstName)
@@ -364,7 +367,8 @@ func (t *AppendObjectCreatorTest) CallsDeleteObject() {
 		WillOnce(Return(errors.New("")))
 
 	// Call
-	t.call()
+	_, err := t.call()
+	AssertEq(nil, err)
 }
 
 func (t *AppendObjectCreatorTest) DeleteObjectFails() {

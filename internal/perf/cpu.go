@@ -43,7 +43,7 @@ func HandleCPUProfileSignals() {
 		}()
 
 		// Profile.
-		pprof.StartCPUProfile(f)
+		_ = pprof.StartCPUProfile(f)
 		time.Sleep(duration)
 		pprof.StopCPUProfile()
 		return
